@@ -1,0 +1,25 @@
+Statistika za igralca: blaz
+ID igralca: 1
+Pretecen cas: 5 s
+Stevilo napacnih ugibanj: 0
+
+Statistika za igralca: Luka
+ID igralca: 2
+Pretecen cas: 8 s
+Stevilo napacnih ugibanj: 0
+
+Statistika za igralca: b
+ID igralca: 10
+Pretecen cas: 3 s
+Stevilo napacnih ugibanj: 1
+
+Statistika za igralca: bllaz
+ID igralca: 9
+Pretecen cas: 7 s
+Stevilo napacnih ugibanj: 1
+
+Statistika za igralca: ee
+ID igralca: 8
+Pretecen cas: 8 s
+Stevilo napacnih ugibanj: 1
+

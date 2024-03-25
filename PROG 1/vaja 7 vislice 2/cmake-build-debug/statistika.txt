@@ -1,0 +1,25 @@
+Statistika za igralca: gh
+ID igralca: 5
+Pretečen čas: -1.70463e+09 sekund
+Število napačnih ugibanj: 1
+
+Statistika za igralca: gh
+ID igralca: 3
+Pretečen čas: -1.70463e+09 sekund
+Število napačnih ugibanj: 0
+
+Statistika za igralca: f
+ID igralca: 4
+Pretečen čas: -1.70463e+09 sekund
+Število napačnih ugibanj: 1
+
+Statistika za igralca: o
+ID igralca: 2
+Pretečen čas: -1.70463e+09 sekund
+Število napačnih ugibanj: 0
+
+Statistika za igralca: 7
+ID igralca: 1
+Pretečen čas: -1.70463e+09 sekund
+Število napačnih ugibanj: 1
+

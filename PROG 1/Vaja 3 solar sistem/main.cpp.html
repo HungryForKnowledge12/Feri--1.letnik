@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>main.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #b3ae60;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #bcbec4;}
+.s5 { color: #2aacb8;}
+.s6 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">#include </span><span class="s2">&lt;iostream&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;fstream&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;sstream&gt;</span>
+<span class="s3">using namespace </span><span class="s1">std</span><span class="s4">;</span>
+
+<span class="s3">const float </span><span class="s1">PI </span><span class="s4">= </span><span class="s5">3.14</span><span class="s4">;</span>
+<span class="s3">const int </span><span class="s1">STEVILO_PLANETOV </span><span class="s4">= </span><span class="s5">8</span><span class="s4">;</span>
+
+<span class="s3">int </span><span class="s1">IzracunajProcente</span><span class="s4">(</span><span class="s3">float </span><span class="s1">COpazovanja</span><span class="s4">, </span><span class="s3">float </span><span class="s1">obhodniC</span><span class="s4">);</span>
+<span class="s3">void </span><span class="s1">NarisiPot</span><span class="s4">(</span><span class="s3">int </span><span class="s1">procenti</span><span class="s4">);</span>
+<span class="s3">float </span><span class="s1">IzracunajMankajocoPot</span><span class="s4">(</span><span class="s3">float </span><span class="s1">radij</span><span class="s4">, </span><span class="s3">float </span><span class="s1">COpazovanja</span><span class="s4">, </span><span class="s3">float </span><span class="s1">obhodniC</span><span class="s4">);</span>
+<span class="s3">void </span><span class="s1">NarisiGraf</span><span class="s4">(</span><span class="s1">string planet</span><span class="s4">, </span><span class="s3">int </span><span class="s1">sirinaG</span><span class="s4">, </span><span class="s3">int </span><span class="s1">procenti</span><span class="s4">);</span>
+
+<span class="s3">int </span><span class="s1">main</span><span class="s4">() {</span>
+    <span class="s1">string planeti</span><span class="s4">[</span><span class="s1">STEVILO_PLANETOV</span><span class="s4">];</span>
+    <span class="s3">float </span><span class="s1">radiji</span><span class="s4">[</span><span class="s1">STEVILO_PLANETOV</span><span class="s4">];</span>
+    <span class="s3">float </span><span class="s1">obhodniCasi</span><span class="s4">[</span><span class="s1">STEVILO_PLANETOV</span><span class="s4">];</span>
+
+    <span class="s1">ifstream vhodniFile</span><span class="s4">(</span><span class="s2">&quot;vhodni.txt&quot;</span><span class="s4">);</span>
+    <span class="s1">string line</span><span class="s4">;</span>
+    <span class="s3">int </span><span class="s1">index </span><span class="s4">= </span><span class="s5">0</span><span class="s4">;</span>
+
+    <span class="s3">if </span><span class="s4">(!</span><span class="s1">vhodniFile</span><span class="s4">) {</span>
+        <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;File could not be opened!&quot; </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+        <span class="s3">return </span><span class="s4">-</span><span class="s5">1</span><span class="s4">; </span><span class="s6">// error code</span>
+    <span class="s4">}</span>
+
+    <span class="s3">while </span><span class="s4">(</span><span class="s1">getline</span><span class="s4">(</span><span class="s1">vhodniFile</span><span class="s4">, </span><span class="s1">line</span><span class="s4">) &amp;&amp; </span><span class="s1">index </span><span class="s4">&lt; </span><span class="s1">STEVILO_PLANETOV</span><span class="s4">) {</span>
+        <span class="s1">stringstream ss</span><span class="s4">(</span><span class="s1">line</span><span class="s4">);</span>
+        <span class="s1">ss </span><span class="s4">&gt;&gt; </span><span class="s1">planeti</span><span class="s4">[</span><span class="s1">index</span><span class="s4">] &gt;&gt; </span><span class="s1">radiji</span><span class="s4">[</span><span class="s1">index</span><span class="s4">] &gt;&gt; </span><span class="s1">obhodniCasi</span><span class="s4">[</span><span class="s1">index</span><span class="s4">];</span>
+        <span class="s1">index</span><span class="s4">++;</span>
+    <span class="s4">}</span>
+
+    <span class="s1">vhodniFile</span><span class="s4">.</span><span class="s1">close</span><span class="s4">();</span>
+
+    <span class="s3">int </span><span class="s1">sirinaG</span><span class="s4">;</span>
+    <span class="s3">float </span><span class="s1">COpazovanja</span><span class="s4">;</span>
+
+    <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;Vpisi cas opazovanja: &quot;</span><span class="s4">;</span>
+    <span class="s1">cin </span><span class="s4">&gt;&gt; </span><span class="s1">COpazovanja</span><span class="s4">;</span>
+    <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;Vpisi sirino grafa: &quot;</span><span class="s4">;</span>
+    <span class="s1">cin </span><span class="s4">&gt;&gt; </span><span class="s1">sirinaG</span><span class="s4">;</span>
+    <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+
+    <span class="s3">for </span><span class="s4">(</span><span class="s3">int </span><span class="s1">i </span><span class="s4">= </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i </span><span class="s4">&lt; </span><span class="s1">STEVILO_PLANETOV</span><span class="s4">; ++</span><span class="s1">i</span><span class="s4">) {</span>
+        <span class="s1">NarisiGraf</span><span class="s4">(</span><span class="s1">planeti</span><span class="s4">[</span><span class="s1">i</span><span class="s4">], </span><span class="s1">sirinaG</span><span class="s4">, </span><span class="s1">IzracunajProcente</span><span class="s4">(</span><span class="s1">COpazovanja</span><span class="s4">, </span><span class="s1">obhodniCasi</span><span class="s4">[</span><span class="s1">i</span><span class="s4">]));</span>
+    <span class="s4">}</span>
+    <span class="s3">return </span><span class="s5">0</span><span class="s4">;</span>
+<span class="s4">}</span>
+
+<span class="s3">int </span><span class="s1">IzracunajProcente</span><span class="s4">(</span><span class="s3">float </span><span class="s1">COpazovanja</span><span class="s4">, </span><span class="s3">float </span><span class="s1">obhodniC</span><span class="s4">) {</span>
+    <span class="s3">if </span><span class="s4">(</span><span class="s1">obhodniC </span><span class="s4">== </span><span class="s5">0</span><span class="s4">) {</span>
+        <span class="s3">return </span><span class="s5">0</span><span class="s4">;</span>
+    <span class="s4">}</span>
+    <span class="s3">int </span><span class="s1">procenti </span><span class="s4">= </span><span class="s3">static_cast</span><span class="s4">&lt;</span><span class="s3">int</span><span class="s4">&gt;((</span><span class="s1">COpazovanja </span><span class="s4">/ </span><span class="s1">obhodniC</span><span class="s4">) * </span><span class="s5">100</span><span class="s4">);</span>
+    <span class="s3">return </span><span class="s1">procenti</span><span class="s4">;</span>
+<span class="s4">}</span>
+
+<span class="s3">float </span><span class="s1">IzracunajMankajocoPot</span><span class="s4">(</span><span class="s3">float </span><span class="s1">radij</span><span class="s4">, </span><span class="s3">float </span><span class="s1">COpazovanja</span><span class="s4">, </span><span class="s3">float </span><span class="s1">obhodniC</span><span class="s4">) {</span>
+    <span class="s3">float </span><span class="s1">kHitrost </span><span class="s4">= (</span><span class="s5">2 </span><span class="s4">* </span><span class="s1">PI </span><span class="s4">* </span><span class="s1">radij</span><span class="s4">) / </span><span class="s1">obhodniC</span><span class="s4">;</span>
+    <span class="s3">float </span><span class="s1">obhod </span><span class="s4">= </span><span class="s5">2 </span><span class="s4">* </span><span class="s1">PI </span><span class="s4">* </span><span class="s1">radij</span><span class="s4">;</span>
+    <span class="s3">float </span><span class="s1">mankajocaP </span><span class="s4">= </span><span class="s1">obhod </span><span class="s4">- </span><span class="s1">COpazovanja </span><span class="s4">* </span><span class="s1">kHitrost</span><span class="s4">;</span>
+    <span class="s3">return </span><span class="s1">mankajocaP</span><span class="s4">;</span>
+<span class="s4">}</span>
+
+<span class="s3">void </span><span class="s1">NarisiPot</span><span class="s4">(</span><span class="s3">int </span><span class="s1">procenti</span><span class="s4">) {</span>
+    <span class="s3">float </span><span class="s1">procentMankajocePoti </span><span class="s4">= </span><span class="s5">100 </span><span class="s4">- </span><span class="s1">procenti</span><span class="s4">;</span>
+    <span class="s3">for </span><span class="s4">(</span><span class="s3">int </span><span class="s1">x </span><span class="s4">= </span><span class="s5">0</span><span class="s4">; </span><span class="s1">x </span><span class="s4">&lt; </span><span class="s1">procenti</span><span class="s4">; </span><span class="s1">x</span><span class="s4">++) {</span>
+        <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;*&quot;</span><span class="s4">;</span>
+    <span class="s4">}</span>
+    <span class="s3">for </span><span class="s4">(</span><span class="s3">int </span><span class="s1">y </span><span class="s4">= </span><span class="s5">0</span><span class="s4">; </span><span class="s1">y </span><span class="s4">&lt; </span><span class="s1">procentMankajocePoti</span><span class="s4">; </span><span class="s1">y</span><span class="s4">++) {</span>
+        <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;.&quot;</span><span class="s4">;</span>
+    <span class="s4">}</span>
+<span class="s4">}</span>
+
+<span class="s3">void </span><span class="s1">NarisiGraf</span><span class="s4">(</span><span class="s1">string planet</span><span class="s4">, </span><span class="s3">int </span><span class="s1">sirina</span><span class="s4">, </span><span class="s3">int </span><span class="s1">procenti</span><span class="s4">) {</span>
+    <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s1">planet </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;:&quot; </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+    <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;Procenti: &quot; </span><span class="s4">&lt;&lt; </span><span class="s1">procenti </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;%&quot; </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+    <span class="s3">int </span><span class="s1">obhodi </span><span class="s4">= </span><span class="s1">procenti </span><span class="s4">/ </span><span class="s5">100</span><span class="s4">;</span>
+    <span class="s1">procenti </span><span class="s4">%= </span><span class="s5">100</span><span class="s4">;</span>
+
+    <span class="s3">if </span><span class="s4">(</span><span class="s1">obhodi </span><span class="s4">&gt; </span><span class="s5">0</span><span class="s4">) {</span>
+        <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s2">&quot;Naredil je: &quot; </span><span class="s4">&lt;&lt; </span><span class="s1">obhodi </span><span class="s4">&lt;&lt; (</span><span class="s1">obhodi </span><span class="s4">&gt; </span><span class="s5">1 </span><span class="s4">? </span><span class="s2">&quot; obhodov &quot; </span><span class="s4">: </span><span class="s2">&quot; obhod &quot;</span><span class="s4">) &lt;&lt; </span><span class="s2">&quot;okrog sonca.&quot; </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+    <span class="s4">}</span>
+
+    <span class="s3">for </span><span class="s4">(</span><span class="s3">int </span><span class="s1">i </span><span class="s4">= </span><span class="s5">0</span><span class="s4">; </span><span class="s1">i </span><span class="s4">&lt; </span><span class="s1">sirina</span><span class="s4">; ++</span><span class="s1">i</span><span class="s4">) {</span>
+        <span class="s1">NarisiPot</span><span class="s4">(</span><span class="s1">procenti</span><span class="s4">);</span>
+        <span class="s1">cout </span><span class="s4">&lt;&lt; </span><span class="s1">endl</span><span class="s4">;</span>
+    <span class="s4">}</span>
+<span class="s4">}</span></pre>
+</body>
+</html>
