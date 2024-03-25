@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Številskimi sistemi kalkulator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ccc.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4">Številskimi sistemi kalkulator</h1>
+                <div class="kalk card">
+                    <div class="prikaz card-header">
+                        <div class="vnos"></div>
+                        <div class="izpis"></div>
+                    </div>
+                    <div class="znaki card-body">
+                        <button class="btn btn-light" onclick="dodajanjeStevil(0)">0</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(1)">1</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(2)">2</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(3)">3</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('A')">A</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(4)">4</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(5)">5</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(6)">6</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('B')">B</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(7)">7</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(8)">8</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(9)">9</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('C')">C</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('D')">D</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('E')">E</button>
+                        <button class="btn btn-light text-info" onclick="dodajanjeCrk('F')">F</button>
+                        <button class="btn btn-secondary" onclick="decVbin()">D-B</button>
+                        <button class="btn btn-secondary" onclick="decVoct()">D-O</button>
+                        <button class="btn btn-secondary" onclick="decVhex()">D-H</button>
+                        <button class="btn btn-secondary" onclick="binVdec()">B-D</button>
+                        <button class="btn btn-secondary" onclick="octVdec()">O-D</button>
+                        <button class="btn btn-secondary" onclick="hexVdec()">H-D</button>
+                        <button class="btn btn-warning" onclick="brisi()">DEL</button>
+                        <button class="btn btn-danger" onclick="pocisti()">CC</button>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="ccc.html" class="btn btn-link">Kalkulator</a>
+                        <a href="ccc3.html" class="btn btn-link">Logične vrate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="ccc.js"></script>
+</body>
+</html>

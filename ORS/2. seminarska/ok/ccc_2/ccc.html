@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ccc.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4">Kalkulator</h1>
+                <div class="kalk card">
+                    <div class="prikaz card-header">
+                        <div class="vnos"></div>
+                        <div class="izpis"></div>
+                    </div>
+                    <div class="znaki card-body">
+                        <button class="btn btn-secondary" onclick="sestevanje()">+</button>
+                        <button class="btn btn-secondary" onclick="odstevanje()">-</button>
+                        <button class="btn btn-secondary" onclick="mnozenje()">*</button>
+                        <button class="btn btn-secondary" onclick="deljenje()">/</button>
+                        <button class="btn btn-secondary" onclick="ostanek()">%</button>
+                        <button class="btn btn-secondary" onclick="potenciranje()">^</button>
+                        <button class="btn btn-secondary" onclick="koren()">&radic;</button>
+                        <button class="btn btn-primary" onclick="oklepaji()">( )</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(0)">0</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(1)">1</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(2)">2</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(3)">3</button>
+                        <button class="btn btn-warning" onclick="brisi()">DEL</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(4)">4</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(5)">5</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(6)">6</button>
+                        <button class="btn btn-success" onclick="racunanje()">=</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(7)">7</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(8)">8</button>
+                        <button class="btn btn-light" onclick="dodajanjeStevil(9)">9</button>
+                        <button class="btn btn-danger" onclick="pocisti()">CC</button>
+                    </div>
+                    <div class="mt-3 text-center">
+                      <a href="ccc2.html" class="btn btn-link">Številskimi sistemi</a>
+                      <a href="ccc3.html" class="btn btn-link">Logične vrate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="ccc.js"></script>
+</body>
+</html>
