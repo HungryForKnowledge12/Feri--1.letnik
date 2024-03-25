@@ -1,0 +1,205 @@
+/* General Styles */
+* {
+    box-sizing: border-box; /* Makes sure padding and borders are included in the total width and height */
+    padding: 0; /* Removes padding from all elements */
+    margin: 0; /* Removes margins from all elements */
+    font-family: "Times New Roman", Times, serif; /* Sets a default font for all elements */
+}
+
+body {
+    background-color: lightgray; /* Sets the background color of the whole page */
+    width: 100%; /* Ensures the body takes up the full width of the viewport */
+    height: 100vh; /* Sets the height of the body to be the same as the viewport height */
+}
+
+/* Header Styles */
+header {
+    position: sticky; /* The header will stick to the top of the page */
+    top: 0; /* Sets the top position of the sticky header */
+    z-index: 100; /* Ensures the header stays above other content */
+}
+
+nav {
+    background-color: #000ac6; /* Sets the background color of the navigation bar */
+}
+
+header nav ul {
+    display: flex; /* Applies a flexible box layout to the navigation list */
+    list-style: none; /* Removes bullet points from the list */
+    padding: 10px 0; /* Adds padding above and below the navigation list */
+}
+
+header nav ul li a {
+    margin-left: 30px; /* Spaces out the links in the navigation */
+    text-decoration: none; /* Removes underlines from links */
+    color: lightcyan; /* Sets the text color of the navigation links */
+}
+
+header nav ul li:first-child a {
+    margin-left: 15px; /* Sets a smaller left margin for the first navigation link */
+}
+
+header h1 {
+    display: flex; /* Applies a flexible box layout to the header <h1> */
+    background-color: yellow; /* Sets the background color of the <h1> element */
+    color: red; /* Sets the text color of the <h1> element */
+    justify-content: center; /* Centers the <h1> text horizontally */
+    padding: 15px; /* Adds padding inside the <h1> element */
+    font-size: 30px; /* Sets the font size of the <h1> text */
+    align-items: center; /* Centers the <h1> text vertically */
+}
+
+/* Styles specific for the homepage (index.html) */
+.celiindex {
+    display: flex; /* Applies a flexible box layout to the homepage container */
+    flex-direction: column; /* Stacks the flex items from top to bottom */
+    width: 100%; /* Sets the width of the container to fill its parent */
+    align-items: center; /* Centers the flex items horizontally */
+}
+
+.celiindex .indexodstavek {
+    margin-top: 23px; /* Adds a top margin to the paragraph sections on the homepage */
+    width: 45%; /* Sets the width of the paragraph sections */
+    background-color: cadetblue; /* Sets the background color of the paragraph sections */
+}
+
+.celiindex .indexodstavek img {
+    height: 500px; /* Sets a specific height for images */
+    width: auto; /* Maintains the aspect ratio of the images */
+    object-position: center; /* Centers the image within its container */
+    margin: 0 auto; /* Centers the image horizontally within its container */
+    display: block; /* Ensures the image is a block-level element to enable margin auto */
+}
+
+.celiindex .indexodstavek video {
+    height: 500px; /* Sets a specific height for videos */
+    width: auto; /* Maintains the aspect ratio of the videos */
+    object-position: center; /* Centers the video within its container */
+    margin: 0 auto; /* Centers the video horizontally within its container */
+    display: block; /* Ensures the video is a block-level element to enable margin auto */
+}
+
+.celiindex .indexodstavek h2 {
+    background-color: yellow; /* Sets the background color of the <h2> elements */
+    text-align: center; /* Centers the text inside the <h2> elements */
+    font-size: 40px; /* Sets the font size of the <h2> text */
+}
+
+/* Styles specific for the offers page (ponudba.html) */
+.vseponudbe {
+    display: flex; /* Applies a flexible box layout to the offers container */
+    justify-content: center; /* Centers the flex items horizontally */
+    align-items: center; /* Centers the flex items vertically */
+    width: 100%; /* Sets the width of the container to fill its parent */
+    height: 90%; /* Sets the height of the container to be 90% of its parent */
+}
+
+.vseponudbe .ponudba {
+    width: 60%; /* Sets the width of the offers list to be 60% of its parent */
+    display: flex; /* Applies a flexible box layout to the offers list */
+    flex-wrap: wrap; /* Allows the offer items to wrap to the next line if needed */
+    justify-content: space-between; /* Spaces out the offer items evenly */
+}
+
+.vseponudbe .ponudba .avto {
+    height: 400px; /* Sets the height for each car offer item */
+    width: 30%; /* Sets the width for each car offer item to be 30% of its parent */
+    background: lightpink; /* Sets the background color for the car offer items */
+    margin-top: 20px; /* Adds a top margin to the car offer items */
+    cursor: pointer; /* Changes the mouse cursor to indicate clickable items */
+    display: flex; /* Applies a flexible box layout to the car offer items */
+    flex-direction: column; /* Stacks the flex items from top to bottom within the car offer items */
+    align-items: center; /* Centers the flex items horizontally within the car offer items */
+}
+
+.vseponudbe .ponudba .avto img {
+    width: 100%; /* Makes the car images fill the width of their container */
+    height: 200px; /* Sets a specific height for the car images */
+}
+
+.vseponudbe .ponudba .avto dl {
+    height: 160px; /* Sets a specific height for the description list within car offer items */
+    font-size: 120%; /* Increases the font size for the description list */
+    background-color: lightblue; /* Sets the background color for the description list */
+    overflow: auto; /* Enables scrolling if the content overflows the description list's box */
+}
+
+.vseponudbe .ponudba .avto h2 {
+    display: flex; /* Applies a flexible box layout to the <h2> within car offer items */
+    align-items: center; /* Centers the <h2> text vertically */
+    justify-content: center; /* Centers the <h2> text horizontally */
+    height: 40px; /* Sets a specific height for the <h2> */
+}
+
+/* Styles specific for the survey page (anketa.html) */
+.celi-form {
+    width: 50%; /* Sets the width of the form container to be 50% of its parent */
+    margin: 0 auto; /* Centers the form container horizontally */
+    margin-top: 100px; /* Adds a top margin to the form container */
+    padding: 20px; /* Adds padding inside the form container */
+    border-radius: 10px; /* Rounds the corners of the form container */
+    background-color: lightblue; /* Sets the background color of the form container */
+    transform: scale(1.2); /* Enlarges the form container by a scale of 1.2 */
+}
+
+.celi-form p,
+.celi-form table tr td:first-child {
+    font-size: 2em; /* Sets a large font size for paragraph texts and the first cell in table rows */
+    padding-right: 20px; /* Adds right padding to these elements */
+    margin: 5px 0; /* Adds top and bottom margins to these elements */
+    font-weight: 600; /* Makes the font weight bold for these elements */
+    color: lightgreen; /* Sets the text color for these elements */
+}
+
+.celi-form .form-grupa .textbox {
+    width: 100%; /* Makes the text box fill the width of its container */
+    height: 40px; /* Sets a specific height for the text box */
+    margin-bottom: 10px; /* Adds a bottom margin to the text box */
+    border: 2px solid lightgreen; /* Adds a green border to the text box */
+    border-radius: 8px; /* Rounds the corners of the text box */
+}
+
+.celi-form textarea {
+    width: 100%; /* Makes the textarea fill the width of its container */
+    height: 120px; /* Sets a specific height for the textarea */
+    margin-bottom: 10px; /* Adds a bottom margin to the textarea */
+    border: 2px solid lightgreen; /* Adds a green border to the textarea */
+    border-radius: 8px; /* Rounds the corners of the textarea */
+}
+
+.celi-form input[type="submit"] {
+    width: 100%; /* Makes the submit button fill the width of its container */
+    height: 40px; /* Sets a specific height for the submit button */
+    background-color: lightgreen; /* Sets the background color of the submit button */
+    color: white; /* Sets the text color of the submit button */
+    font-size: 110%; /* Increases the font size of the submit button text */
+    border-radius: 10px; /* Rounds the corners of the submit button */
+    cursor: pointer;
+    border: none;
+}
+
+/* Changes the background color of the submit button to light green when hovered */
+.celi-form input[type="submit"]:hover {
+    background-color: lightgreen;
+}
+
+/* Sets up a flex container for both radio and checkbox containers to align them properly */
+.radio-container,
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Adds a margin to the right of radio and checkbox inputs for spacing */
+.radio-container input[type="radio"],
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Styles labels within .celi-form with margin, block display, bold font, and black color */
+.celi-form label {
+    margin: 5px 0;
+    display: block;
+    font-weight: 600;
+    color: black;
+}

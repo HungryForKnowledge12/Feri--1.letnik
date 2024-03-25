@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<title>Registracija</title>
+<style>
+    .error { color: red; }
+</style>
+</head>
+<body>
+<form name="obrazecRegistracije" onsubmit="return preveriObrazec()">
+    <label for="uporabniskoIme">Uporabniško ime:</label>
+    <input type="text" id="uporabniskoIme" name="uporabniskoIme"><span class="error" id="errorUporabniskoIme"></span><br><br>
+
+    <label for="ePosta">E-pošta:</label>
+    <input type="text" id="ePosta" name="ePosta"><span class="error" id="errorEPosta"></span><br><br>
+
+    <label for="geslo">Geslo:</label>
+    <input type="password" id="geslo" name="geslo"><span class="error" id="errorGeslo"></span><br><br>
+
+    <label for="potrdiGeslo">Ponovi geslo:</label>
+    <input type="password" id="potrdiGeslo" name="potrdiGeslo"><span class="error" id="errorPotrdiGeslo"></span><br><br>
+
+    <input type="radio" id="moski" name="spol" value="moški">
+    <label for="moski">Moški</label>
+    <input type="radio" id="zenski" name="spol" value="ženski">
+    <label for="zenski">Ženski</label>
+    <span class="error" id="errorSpol"></span><br><br>
+
+    <input type="submit" value="Pošlji">
+</form>
+
+<script>
+const obstojecaUporabniskaImena = ["Blaz"];
+
+function setError(elementId, message) {
+    document.getElementById(elementId).innerText = message;
+}
+
+// Funkcija za preverjanje podatkov
+function preveriObrazec() {
+    let isValid = true;
+
+    let uporabniskoIme = document.forms["obrazecRegistracije"]["uporabniskoIme"].value;
+    let ePosta = document.forms["obrazecRegistracije"]["ePosta"].value;
+    let geslo = document.forms["obrazecRegistracije"]["geslo"].value;
+    let potrdiGeslo = document.forms["obrazecRegistracije"]["potrdiGeslo"].value;
+    let spol = document.forms["obrazecRegistracije"]["spol"].value;
+
+    // Oporabniško ime
+    if (uporabniskoIme.length < 3 || uporabniskoIme.length > 20 || obstojecaUporabniskaImena.includes(uporabniskoIme)) {
+        setError("errorUporabniskoIme", "Neveljavno uporabniško ime.");
+        isValid = false;
+    } else {
+        setError("errorUporabniskoIme", "");
+    }
+
+    // E-pošta
+    let regexEPoste = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexEPoste.test(ePosta)) {
+        setError("errorEPosta", "Neveljavna e-pošta.");
+        isValid = false;
+    } else {
+        setError("errorEPosta", "");
+    }
+
+    // Geslo
+    let regexGesla = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+    if (!regexGesla.test(geslo)) {
+        setError("errorGeslo", "Neveljavno geslo.");
+        isValid = false;
+    } else {
+        setError("errorGeslo", "");
+    }
+
+    // Ujemanja gesel
+    if (geslo !== potrdiGeslo) {
+        setError("errorPotrdiGeslo", "Gesli se ne ujemata.");
+        isValid = false;
+    } else {
+        setError("errorPotrdiGeslo", "");
+    }
+
+    // Izbire spola
+    if (!spol) {
+        setError("errorSpol", "Izberite spol.");
+        isValid = false;
+    } else {
+        setError("errorSpol", "");
+    }
+
+    return isValid;
+}
+    document.getElementById("uporabniskoIme").addEventListener("change", preveriObrazec);
+    document.getElementById("ePosta").addEventListener("change", preveriObrazec);
+    document.getElementById("geslo").addEventListener("change", preveriObrazec);
+    document.getElementById("potrdiGeslo").addEventListener("change", preveriObrazec);
+</script>
+
+</body>
+</html>

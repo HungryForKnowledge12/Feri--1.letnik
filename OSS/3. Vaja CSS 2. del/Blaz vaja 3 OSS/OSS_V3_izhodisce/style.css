@@ -1,0 +1,343 @@
+:root {
+    --color-text-primary: #333;
+    --color-text-secondary: #666;
+    --color-bg-primary: #EEE;
+    --color-bg-secondary: #CCC;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text-primary: #b3b2b2;
+        --color-text-secondary: #888888;
+        --color-bg-primary: #2b2b2b;
+        --color-bg-secondary: #393939;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8em;
+    font-size: 16px;
+}
+
+body, html {
+    height: 100%;
+    min-width: 300px;
+    background-color: var(--color-bg-primary);
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: var(--color-bg-primary);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav a {
+    padding: 10px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    display: block;
+}
+
+nav a:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+#menuToggle, #menuButton {
+    display: none;
+}
+
+#menuToggle:checked ~ a {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: block;
+    }
+
+    #menuToggle ~ a {
+        display: none;
+    }
+
+    #menuButton {
+        display: block;
+    }
+}
+
+#home, #slika1, #slika2 {
+    opacity: 65%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#home {
+    height: 100%;
+    background-image: url("images/background1.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slika1 {
+    height: 50%;
+    background-image: url("images/background2.jpg");
+}
+
+#slika2 {
+    height: 50%;
+    background-image: url("images/background3.jpg");
+}
+
+.title-box {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.title-box .title {
+    font-size: 2em;
+}
+
+.title-box .subtitle {
+    font-size: 1.2435em;
+}
+
+.content {
+    padding: 50px;
+    color: var(--color-text-secondary);
+    text-align: justify;
+}
+
+.content h2 {
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    font-weight: normal;
+    letter-spacing: 5px;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .cards-container {
+        flex-direction: column;
+    }
+}
+
+.card {
+    width: 300px;
+    height: 410px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.card img {
+    width: 280px;
+    height: 390px;
+    margin: 10px;
+}
+
+.card-inner {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+    display: flex;
+    background: linear-gradient(to right, #a4a4a4, #b8b8b8);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: justify;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: rotateY(180deg);
+}
+
+.contact-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-content: center;
+    gap: 20px;
+    height: 360px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.contact-image img {
+    height: 360px;
+}
+
+.contact-data {
+    font-size: 1.2em;
+}
+
+.contact-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 1000px;
+    width: calc(100% - 560px);
+}
+
+.contact-form p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact-form input {
+    padding: 10px;
+}
+
+.contact-form input[name='name'], .contact-form input[name='email'] {
+    flex-basis: 49%;
+}
+
+.contact-form p, .contact-form input[name='message'] {
+    width: 100%;
+}
+
+.contact-form .submit-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.contact-form button {
+    cursor: pointer;
+    width: 150px;
+    padding: 8px;
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+}
+
+@media (min-width: 650px) and (max-width: 1200px), (max-width: 649px) {
+    .contact-container {
+        flex-flow: column nowrap;
+        height: 900px;
+        align-items: center;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input[name='name'], .contact-form input[name='email'] {
+        flex-basis: 99%;
+    }
+
+    .contact-data {
+        transform: scale(1.2);
+    }
+}
+
+footer {
+    padding: 50px;
+    color: var(--color-bg-primary);
+    background-color: var(--color-text-primary);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a#to-top {
+    width: 150px;
+    padding: 8px;
+    margin: 20px;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    text-decoration: none;
+    text-align: center;
+}
+
+footer a#to-top:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+footer .social-links {
+    cursor: pointer;
+    font-size: 1.6em;
+}
+
+footer .social-links i {
+    margin: 5px;
+}
+
+footer p {
+    margin: 10px;
+}
+
+blockquote {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    border-left: 8px solid var(--color-text-primary);
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+blockquote:before {
+    color: var(--color-text-secondary);
+    content: open-quote;
+    font-size: 80px;
+    position: relative;
+    top: -15px;
+    margin-right: 20px;
+    vertical-align: -20px;
+    line-height: 0;
+}
+
+@media (prefers-reduced-motion) {
+    .card-inner {
+        transition: transform 0.01s;
+        animation-duration: 0.01ms;
+    }
+
+    html, body {
+        scroll-behavior: auto;
+    }
+}

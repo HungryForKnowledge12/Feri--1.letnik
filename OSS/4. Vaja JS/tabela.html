@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<title>Mario Level</title>
+<style>
+  table {
+    background-color: silver;
+    border-collapse: collapse;
+  }
+  td {
+    border: 1px solid gray;
+    width: 80px;
+    height: 80px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<script>
+var izbraniSprite = null;
+var stolpci, vrstice;
+var jeVeljavenVnos = false;
+
+// Vnos podatkov
+while(!jeVeljavenVnos) {
+  stolpci = parseInt(window.prompt("Vnesi število stolpcev med 10 in 40: "), 10);
+  if(isNaN(stolpci) || stolpci < 10 || stolpci > 40) {
+    alert("Nisi vnesel celega števila med 10 in 40.");
+    continue;
+  }
+
+  vrstice = parseInt(window.prompt("Vnesi število vrstic med 5 in 20: "), 10);
+  if(isNaN(vrstice) || vrstice < 5 || vrstice > 20) {
+    alert("Nisi vnesel celega števila med 5 in 20.");
+    continue;
+  }
+
+  jeVeljavenVnos = true;
+}
+
+// Tabela z izbiro
+document.write('<table><tr>');
+for(let i=1; i<=16; i++) {
+  document.write('<td><img src="images/sprite' + i + '.gif" onclick="nastaviIzbraniSprite(\'images/sprite' + i + '.gif\')"></td>');
+}
+document.write('</tr></table>');
+
+// Izris tabele za vstavljanje
+document.write('<table>');
+for(let i=0; i<vrstice; i++) {
+  document.write('<tr>');
+  for(let j=0; j<stolpci; j++) {
+    document.write('<td onclick="posodobiCelicoZSprite(this)"></td>');
+  }
+  document.write('</tr>');
+}
+document.write('</table>');
+
+// Funkciji za preslikavo slik
+function nastaviIzbraniSprite(sprite) {
+  izbraniSprite = sprite;
+  console.log(izbraniSprite);
+}
+
+function posodobiCelicoZSprite(celica) {
+  if(izbraniSprite) {
+    celica.innerHTML = '<img src="' + izbraniSprite + '">';
+  }
+}
+</script>
+
+</body>
+</html>

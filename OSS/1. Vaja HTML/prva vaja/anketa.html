@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="utf-8">
+    <title>Blaževa spletna stran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blaževa spletna stran</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="ponudba.html">Ponudba</a></li>
+                <li><a href="anketa.html">Anketa</a></li>
+                <li><a href="https://estudij.um.si">Vaje</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="celi-form">
+        <form action="anketa.html" method="get">
+            <div class="form-grupa">
+                <label for="ime-in-priimek">Ime in priimek: </label><br>
+                <input type="text" id="ime-in-priimek" name="ime-in-priimek"><br>
+            </div>
+            <div class="form-grupa">
+                <label for="kraj">Izberi kraj: </label><br>
+                <input list="kraji" id="kraj" name="kraj"><br>
+                <datalist id="kraji">
+                    <option value="Ptuj"> </option>
+                    <option value="Maribor"> </option>
+                    <option value="Celje"> </option>
+                    <option value="Velenje"> </option>
+                    <option value="Ljubljana"> </option>
+                </datalist>
+            </div>
+            <div class="form-grupa">
+                <label for="email">Email: </label><br>
+                <input type="email" id="email" name="email"><br>
+            </div>
+            <div class="form-grupa">
+                <label for="tip-vozila">Tip vozila: </label>
+                <div class="radio-container">
+                    <input type="radio" name="tip" value="kombilimuzina" id="kombilimuzina">
+                    <label for="kombilimuzina">kombilimuzina</label>
+                    <input type="radio" name="tip" value="limuzina" id="limuzina">
+                    <label for="limuzina">limuzina</label>
+                    <input type="radio" name="tip" value="enoprostorec" id="enoprostorec">
+                    <label for="enoprostorec">enoprostorec</label>
+                    <input type="radio" name="tip" value="karavan" id="karavan">
+                    <label for="karavan">karavan</label>
+                    <input type="radio" name="tip" value="terensko vozilo" id="terensko-vozilo">
+                    <label for="terensko-vozilo">terensko vozilo</label>
+                </div>
+            </div>
+            <div class="form-grupa">
+                <label for="priljubljene-znamke">Priljubljene znamke: </label>
+                <div class="checkbox-container">
+                    <input type="checkbox" name="znamke" value="BMW" id="bmw">
+                    <label for="bmw">BMW</label>
+                    <input type="checkbox" name="znamke" value="AUDI" id="audi">
+                    <label for="audi">AUDI</label>
+                    <input type="checkbox" name="znamke" value="MERCEDES" id="mercedes">
+                    <label for="mercedes">MERCEDES</label>
+                    <input type="checkbox" name="znamke" value="KIA" id="kia">
+                    <label for="kia">KIA</label>
+                    <input type="checkbox" name="znamke" value="FORD" id="ford">
+                    <label for="ford">FORD</label>
+                </div>
+            </div>
+            <div class="form-grupa">
+                <label for="želje">Vpiši želje:</label></br>
+                <textarea id="zelje" name="text" rows="10" maxlength="60"></textarea></br>
+            </div>
+            <div class="form-grupa">
+                <button type="submit" value="Pošlji">Pošlji</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
