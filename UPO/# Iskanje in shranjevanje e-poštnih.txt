@@ -1,0 +1,20 @@
+# Iskanje in shranjevanje e-poštnih naslovov iz vsake datoteke
+grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_1.txt >> izhod.txt
+grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_2.txt >> izhod.txt
+grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_3.txt >> izhod.txt
+
+# Štetje e-poštnih naslovov in shranjevanje v izhodno datoteko
+echo "Število poštnih naslovov: $(cat izhod.txt | wc -l)" > rezultati.txt
+echo "Število poštnih naslovov Datoteka_1: $(grep -Eoc '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_1.txt)" >> rezultati.txt
+echo "Število poštnih naslovov Datoteka_2: $(grep -Eoc '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_2.txt)" >> rezultati.txt
+echo "Število poštnih naslovov Datoteka_3: $(grep -Eoc '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_3.txt)" >> rezultati.txt
+
+# Dodajanje e-poštnih naslovov v rezultatno datoteko
+cat izhod.txt >> rezultati.txt
+
+# Shranjevanje uporabljenih ukazov v ločeno datoteko
+echo "Uporabljeni ukazi:" > ukazi.txt
+echo "grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_1.txt >> izhod.txt" >> ukazi.txt
+echo "grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_2.txt >> izhod.txt" >> ukazi.txt
+echo "grep -Eo '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}' datoteka_3.txt >> izhod.txt" >> ukazi.txt
+echo "echo 'Število poštnih naslovov: $(cat izhod.txt | wc -l)' > rezultati.txt" >> ukazi.txt

@@ -1,0 +1,47 @@
+ODVOD
+
+f1: diff(sin(x) + log(x) + sqrt(x), x);
+
+f2: diff(atan((2*x + 1)^2 / x^2), x);
+
+f3: diff(x^sin(x), x);
+
+f4: diff(2^(x^(2*x)), x);
+
+f5: diff(cos(x^2), x);
+
+LIMITI
+
+f6: limit((1 - x^2) / sin(x), x, 1);
+
+f7: limit(((n - 2) / n)^(n / 2), n, inf);
+
+f8: limit(x * (sqrt(x^2 + 1) - x), x, inf);
+
+f9: limit(x^2 * exp(-x), x, inf);
+
+f10: limit(1 / sin(x) - 1 / tan(x), x, 0);
+
+INTEGRALI
+
+f11: integrate((x^3 - 2*x + 6) / x, x);
+
+f12: integrate(x^3 * exp(x), x);
+
+f13: integrate(x^2 * sin(2*x), x);
+
+f14: integrate(sqrt(5*x - 6), x);
+
+f15: integrate(cos(x) * sin(x)^6, x);
+
+DOLOCENI INTEGRALI
+
+f16: integrate(1 / (4 - x)^(2/3), x, 2, 6);
+
+f17: integrate(1 / (2 * sin(x)^2 + 1), x, 0, %pi / 4);
+
+f18: integrate(sqrt(exp(x) - 1), x, 0, log(2));
+
+f19: integrate(1 / sqrt(x^2 + 2*x + 4), x, -2, 0);
+
+f20: integrate(4 * x^(1/3) - 2 / x^(1/3), x, 1, 8);
